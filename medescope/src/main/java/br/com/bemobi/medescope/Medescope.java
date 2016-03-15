@@ -122,13 +122,13 @@ public class Medescope {
         DownloadCommandService.actionSubscribeStatusUpdate(context, id);
     }
 
-    public void subscribeStatus(Activity activity, String id, DownloadStatusCallback callback){
+    public void subscribeStatus(Context activity, String id, DownloadStatusCallback callback){
         mReceiver.setCallback(callback);
         activity.registerReceiver(mReceiver, getStatusBroadcastFilter());
         DownloadCommandService.actionSubscribeStatusUpdate(mContext, id);
     }
 
-    public void unsubscribeStatus(Activity activity){
+    public void unsubscribeStatus(Context activity){
         activity.unregisterReceiver(mReceiver);
         DownloadCommandService.actionUnsubscribeStatusUpdate(mContext);
     }
